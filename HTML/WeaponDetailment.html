@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Firing Detailment Form</title>
+  <link rel="stylesheet" href="../CSS/WeaponDetailment.css" />
+  <link rel="stylesheet" href="../CSS/style.css" />
+  <link rel="icon" type="image/webp" href="../Assets/DRDO.png">
+
+</head>
+
+<body>
+
+  <script>
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      window.location.href = "login.html";
+    }
+
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("login") === "success") {
+        alert("You are successfully logged in.");
+      }
+    };
+
+    function logout() {
+      const confirmLogout = confirm("Are you sure you want to logout?");
+      if (confirmLogout) {
+        sessionStorage.removeItem("isLoggedIn");
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="../Assets/Emblem.png" alt="Ashoka Emblem" class="logo" />
+      <img src="../Assets/DRDO.png" alt="DRDO Logo" class="logo" />
+      <div class="text-section">
+        <p class="hindi-text">
+          रक्षा अनुसंधान एवं विकास संगठन<br />रक्षा मंत्रालय, भारत सरकार
+        </p>
+        <h2>DEFENCE RESEARCH & DEVELOPMENT ORGANISATION</h2>
+        <p class="eng-subtext">Ministry of Defence, Government of India</p>
+      </div>
+    </div>
+
+    <div class="navbar-center">
+      <a href="../HTML/index.html" class="nav-link">Home</a>
+      <a href="../HTML/AboutUs.html" class="nav-link">About</a>
+      <a href="../HTML/Weapons.html" class="nav-link">Weapons</a>
+      <a href="../HTML/Employee.html" class="nav-link">PXE Employees</a>
+      <a href="../HTML/WeaponDetailment.html" class="nav-link">Weapon Detailment</a>
+      <a href="../HTML/ProjectMember.html" class="nav-link">About Project</a>
+
+    </div>
+
+    <div class="navbar-right">
+      <a href="#" class="btn" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <h2>🔒 Firing Detailment Form</h2>
+    <div class="top-grid">
+      <!-- Form Section -->
+      <div class="form-section">
+        <form id="firingForm">
+          <label for="employeeName">Select Employee</label>
+          <select id="employeeName" required onchange="autofillEmployeeID()">
+            <option value="">-- Select Employee --</option>
+          </select>
+
+          <label for="employeeID">Employee ID</label>
+          <input type="text" id="employeeID" readonly>
+
+          <label for="weaponName">Select Weapon</label>
+          <select id="weaponName" required onchange="autofillWeaponID()">
+            <option value="">-- Select Weapon --</option>
+          </select>
+
+          <label for="weaponID">Weapon ID</label>
+          <input type="text" id="weaponID" readonly>
+
+          <label for="date">Date of Firing</label>
+          <input type="date" id="date" required>
+
+          <label for="firingPoint">Firing Point</label>
+          <select id="firingPoint" required>
+            <option value="">-- Select Point --</option>
+            <option value="Firing Point 1">Firing Point 1</option>
+            <option value="Firing Point 2">Firing Point 2</option>
+            <option value="Firing Point 3">Firing Point 3</option>
+            <option value="Firing Point 4">Firing Point 4</option>
+          </select>
+
+          <label for="time">Time</label>
+          <select id="time" required>
+            <option value="">-- Select Time --</option>
+            <option value="Forenoon">Forenoon</option>
+            <option value="Afternoon">Afternoon</option>
+          </select>
+
+          <div class="form-buttons">
+            <button type="submit" class="btn save">💾 Save</button>
+            <button type="reset" class="btn reset">❌ Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Filter Section -->
+      <div class="filter-section">
+        <h3>🔍 Filter Records</h3>
+
+        <label for="filterEmployee">Employee Name</label>
+        <select id="filterEmployee">
+          <option value="">-- Select Employee --</option>
+        </select>
+
+        <label for="filterWeapon">Weapon Name</label>
+        <select id="filterWeapon">
+          <option value="">-- Select Weapon --</option>
+        </select>
+
+        <label for="filterFrom">From Date</label>
+        <input type="date" id="filterFrom">
+
+        <label for="filterTo">To Date</label>
+        <input type="date" id="filterTo">
+
+        <button class="btn filter" onclick="filterData()">🔍 Search</button>
+        <button class="btn clear" onclick="clearFilter()">♻️ Clear</button>
+        <button class="btn delete" onclick="deleteFilteredData()">🗑️ Delete</button>
+      </div>
+
+    </div>
+
+    <!-- Table Section -->
+    <div class="table-section">
+      <h3>Saved Entries</h3>
+      <div class="scrollable-table">
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th>Serial No</th>
+              <th>Employee Name</th>
+              <th>Employee ID</th>
+              <th>Weapon Name</th>
+              <th>Weapon ID</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Firing Point</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button onclick="updateData()" class="btn update">✏️ Update</button>
+      <button onclick="deleteData()" class="btn delete">🗑️ Delete</button>
+      <button onclick="window.location.href='ReportPage.html'" class="btn report">📄 Show Report</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <img src="../Assets/DRDO.png" alt="DRDO Logo" class="footer-logo" />
+        <p class="footer-org">
+          Defence Research & Development Organisation<br />
+          Ministry of Defence, Government of India
+        </p>
+      </div>
+      <div class="footer-center">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="../HTML/index.html">Home</a></li>
+          <li><a href="../HTML/AboutUs.html">About</a></li>
+          <li><a href="../HTML/Weapons.html">Weapons</a></li>
+          <li><a href="../HTML/Employee.html">PXE Employees</a></li>
+          <li><a href="../HTML/WeaponDetailment.html">Weapon Detailment</a></li>
+          <li><a href="../HTML/ProjectMember.html">About Project</a></li>
+          <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <h4>Contact</h4>
+        <p>Email: <a href="#" class="email-link">support@drdo.in</a></p>
+        <p>Location: DRDO Chandipur, Odisha</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025, DRDO, Ministry of Defence, Government of India</p>
+    </div>
+  </footer>
+
+  <script src="../JS/Script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Firing Detailment Report</title>
+  <link rel="stylesheet" href="../CSS/ReportPage.css">
+  <link rel="icon" type="image/webp" href="../Assets/DRDO.png">
+
+</head>
+
+<body>
+
+  <script>
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      window.location.href = "login.html";
+    }
+
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("login") === "success") {
+        alert("You are successfully logged in.");
+      }
+    };
+
+    function logout() {
+      const confirmLogout = confirm("Are you sure you want to logout?");
+      if (confirmLogout) {
+        sessionStorage.removeItem("isLoggedIn");
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+
+  <div class="container">
+    <h2>📋 Final Firing Detailment Report</h2>
+
+    <!-- Filter Section -->
+    <div class="filter-section centered-filters">
+      <div class="filter-wrapper">
+        <label for="filterName">Employee Name</label>
+        <select id="filterName">
+          <option value="">-- Select Employee --</option>
+        </select>
+
+        <label for="filterWeapon">Weapon Name</label>
+        <select id="filterWeapon">
+          <option value="">-- Select Weapon --</option>
+        </select>
+
+        <label for="filterFrom">From Date</label>
+        <input type="date" id="filterFrom">
+
+        <label for="filterTo">To Date</label>
+        <input type="date" id="filterTo">
+
+        <div class="filter-buttons">
+          <button onclick="applyFilter()" class="btn filter">🔍 Apply Filter</button>
+          <button onclick="clearFilter()" class="btn clear">♻️ Clear</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Table Section -->
+    <div class="table-section">
+      <div class="scrollable-table">
+        <table id="reportTable">
+          <thead>
+            <tr>
+              <th>Serial No</th>
+              <th>Employee Name</th>
+              <th>Employee ID</th>
+              <th>Weapon Name</th>
+              <th>Weapon ID</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Firing Point</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button onclick="exportToExcel()" class="btn excel">⬇ Export to Excel</button>
+      <button onclick="exportToPDF()" class="btn pdf">⬇ Export to PDF</button>
+      <button onclick="window.location.href='WeaponDetailment.html'" class="btn back">⬅ Back to Weapon Detail</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="../JS/ReportPage.js"></script>
+</body>
+
+</html>

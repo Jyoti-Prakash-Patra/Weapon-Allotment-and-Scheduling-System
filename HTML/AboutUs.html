@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weapon Detailment System | AboutUs</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="icon" type="image/webp" href="../Assets/DRDO.png">
+</head>
+
+<body>
+    <script>
+        if (!sessionStorage.getItem("isLoggedIn")) {
+            window.location.href = "login.html";
+        }
+
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("login") === "success") {
+                alert("You are successfully logged in.");
+            }
+        };
+
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to logout?");
+            if (confirmLogout) {
+                sessionStorage.removeItem("isLoggedIn");
+                window.location.href = "login.html";
+            }
+        }
+    </script>
+
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="../Assets/Emblem.png" alt="Ashoka Emblem" class="logo" />
+            <img src="../Assets/DRDO.png" alt="DRDO Logo" class="logo" />
+            <div class="text-section">
+                <p class="hindi-text">
+                    रक्षा अनुसंधान एवं विकास संगठन<br />रक्षा मंत्रालय, भारत सरकार
+                </p>
+                <h2>DEFENCE RESEARCH & DEVELOPMENT ORGANISATION</h2>
+                <p class="eng-subtext">Ministry of Defence, Government of India</p>
+            </div>
+        </div>
+
+        <div class="navbar-center">
+            <a href="../HTML/index.html" class="nav-link">Home</a>
+            <a href="../HTML/AboutUs.html" class="nav-link">About</a>
+            <a href="../HTML/Weapons.html" class="nav-link">Weapons</a>
+            <a href="../HTML/Employee.html" class="nav-link">PXE Employees</a>
+            <a href="../HTML/WeaponDetailment.html" class="nav-link">Weapon Detailment</a>
+            <a href="../HTML/ProjectMember.html" class="nav-link">About Project</a>
+        </div>
+
+        <div class="navbar-right">
+            <a href="#" class="btn" onclick="logout()">Logout</a>
+        </div>
+    </nav>
+
+    <!-- ABOUT HERO SECTION -->
+    <section class="about-hero">
+        <div class="about-overlay">
+            <h1 class="about-title">About Us</h1>
+        </div>
+    </section>
+
+    <!--  ABOUT DRDO SECTION -->
+    <section class="about-section">
+        <h2 class="section-heading">About DRDO</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="../Assets/AboutDRDO.png" alt="DRDO Building" />
+            </div>
+            <div class="about-text">
+                <p>
+                    The Defence Research and Development Organisation (DRDO) is the R&D wing of the Ministry of Defence,
+                    Government of India. Established in 1958, DRDO is dedicated to enhancing India's self-reliance in
+                    defense systems. It develops a wide range of defense technologies, including aeronautics, armaments,
+                    combat vehicles, electronics, instrumentation, engineering systems, missiles, advanced computing,
+                    simulation, and more.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT PXE SECTION -->
+    <section class="about-section reverse">
+        <h2 class="section-heading">About PXE</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Proof & Experimental Establishment (PXE) is a premier DRDO lab situated in Chandipur, Odisha. PXE is
+                    responsible for field testing and evaluation of a wide range of armament stores including rockets,
+                    bombs, torpedoes, and artillery shells. It plays a crucial role in validating the performance and
+                    safety of defense products before induction into the armed forces.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="../Assets/AboutPXE.png" alt="PXE Facility" />
+            </div>
+        </div>
+    </section>
+    <!-- VISION & MISSION SECTION -->
+    <section class="vision-mission-section">
+        <div class="overlay-blur">
+            <h2 class="section-heading light">Vision & Mission of DRDO</h2>
+            <div class="vision-mission-grid">
+                <div class="vision-box">
+                    <h3>Our Vision</h3>
+                    <p>
+                        Empower India with cutting-edge defense technologies and systems that ensure national security
+                        and strategic superiority in all domains.
+                    </p>
+                </div>
+                <div class="mission-box">
+                    <h3>Our Mission</h3>
+                    <p>
+                        Design, develop, and lead production of state-of-the-art sensors, weapon systems, platforms, and
+                        allied equipment for our Armed Forces using science and technology as a key enabler.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="../Assets/DRDO.png" alt="DRDO Logo" class="footer-logo">
+                <p class="footer-org">
+                    Defence Research & Development Organisation<br>
+                    Ministry of Defence, Government of India
+                </p>
+            </div>
+
+            <div class="footer-center">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="../HTML/index.html">Home</a></li>
+                    <li><a href="../HTML/AboutUs.html">About</a></li>
+                    <li><a href="../HTML/Weapons.html">Weapons</a></li>
+                    <li><a href="../HTML/Employee.html">PXE Employees</a></li>
+                    <li><a href="../HTML/WeaponDetailment.html">Weapon Detailment</a></li>
+                    <li><a href="../HTML/ProjectMember.html">About Project</a></li>
+                    <li><a href="#" onclick="logout()">Logout</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <h4>Contact</h4>
+                <p>Email: <a href="#" class="email-link">support@drdo.in</a></p>
+                <p>Location: DRDO Chandipur, Odisha</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2025, DRDO, Ministry of Defence, Government of India</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

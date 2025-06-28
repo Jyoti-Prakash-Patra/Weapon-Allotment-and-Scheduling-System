@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weapon Detailment System | Weapons</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="icon" type="image/webp" href="../Assets/DRDO.png">
+
+</head>
+
+<body>
+
+    <script>
+        if (!sessionStorage.getItem("isLoggedIn")) {
+            window.location.href = "login.html";
+        }
+
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("login") === "success") {
+                alert("You are successfully logged in.");
+            }
+        };
+
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to logout?");
+            if (confirmLogout) {
+                sessionStorage.removeItem("isLoggedIn");
+                window.location.href = "login.html";
+            }
+        }
+    </script>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="../Assets/Emblem.png" alt="Ashoka Emblem" class="logo" />
+            <img src="../Assets/DRDO.png" alt="DRDO Logo" class="logo" />
+            <div class="text-section">
+                <p class="hindi-text">
+                    रक्षा अनुसंधान एवं विकास संगठन<br />रक्षा मंत्रालय, भारत सरकार
+                </p>
+                <h2>DEFENCE RESEARCH & DEVELOPMENT ORGANISATION</h2>
+                <p class="eng-subtext">Ministry of Defence, Government of India</p>
+            </div>
+        </div>
+
+        <div class="navbar-center">
+            <a href="../HTML/index.html" class="nav-link">Home</a>
+            <a href="../HTML/AboutUs.html" class="nav-link">About</a>
+            <a href="../HTML/Weapons.html" class="nav-link">Weapons</a>
+            <a href="../HTML/Employee.html" class="nav-link">PXE Employees</a>
+            <a href="../HTML/WeaponDetailment.html" class="nav-link">Weapon Detailment</a>
+            <a href="../HTML/ProjectMember.html" class="nav-link">About Project</a>
+        </div>
+
+        <div class="navbar-right">
+            <a href="#" class="btn" onclick="logout()">Logout</a>
+        </div>
+    </nav>
+
+    <!-- ABOUT Weapons SECTION -->
+    <section class="about-heroweapon">
+        <div class="about-overlay">
+            <h1 class="about-title">Weapons</h1>
+        </div>
+    </section>
+
+    <section class="weapons-database-section">
+        <h2 class="weapons-heading">Weapons Inventory & Technical Details</h2>
+
+        <div class="weapons-database">
+            <!-- Weapon Card 1 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/M-46.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">M-46 Field Gun</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> Russia</div>
+                    <div><span>🟠 Caliber:</span> 130mm</div>
+                    <div><span>⚡ Range:</span> 27 km</div>
+                    <div><span>📅 Induction Year:</span> 1950s</div>
+                    <div><span>🛒 Purchased From:</span> Soviet Union</div>
+                    <div><span>📗 Technical Specifications:</span> Towed artillery gun</div>
+                    <div><span>🏋 Weight:</span> 8,450 kg</div>
+                    <div><span>📏 Length:</span> 11.73 m</div>
+                    <div><span>👨‍✈ Crew:</span> 8</div>
+                    <div><span>🔴 Ammunition:</span> HE, Smoke, AP</div>
+                    <div><span>⚡ Firing Rate:</span> 6-7 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 2 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/SoltamGun.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">Soltam M-71</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> Israel</div>
+                    <div><span>🟠 Caliber:</span> 155mm</div>
+                    <div><span>⚡ Range:</span> Up to 30 km with extended rounds</div>
+                    <div><span>📅 Induction Year:</span> 1980s</div>
+                    <div><span>🛒 Purchased From:</span> Israel</div>
+                    <div><span>📗 Technical Specifications:</span> Towed howitzer</div>
+                    <div><span>🏋 Weight:</span> ~9,200 kg</div>
+                    <div><span>📏 Length:</span> 11 m</div>
+                    <div><span>👨‍✈ Crew:</span> 8-10</div>
+                    <div><span>🔴 Ammunition:</span> High explosive, smoke, illumination</div>
+                    <div><span>⚡ Firing Rate:</span> 4–5 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 3 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/BoforsL60.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">Bofors L/60 Gun</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> Sweden</div>
+                    <div><span>🟠 Caliber:</span> 40mm</div>
+                    <div><span>⚡ Range:</span> ~3.8 km (air), 7 km (ground)</div>
+                    <div><span>📅 Induction Year:</span> 1950s</div>
+                    <div><span>🛒 Purchased From:</span> Sweden</div>
+                    <div><span>📗 Technical Specifications:</span> Anti-aircraft autocannon</div>
+                    <div><span>🏋 Weight:</span> ~2,000 kg</div>
+                    <div><span>📏 Length:</span> ~4.2 m</div>
+                    <div><span>👨‍✈ Crew:</span> 3–5</div>
+                    <div><span>🔴 Ammunition:</span> HE-T, AP-T</div>
+                    <div><span>⚡ Firing Rate:</span> 120 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 4 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/ATAGSGun.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">ATAGS Gun</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Caliber:</span> 155mm/52 Cal</div>
+                    <div><span>⚡ Range:</span> 48+ km</div>
+                    <div><span>📅 Induction Year:</span> In trials (2020s)</div>
+                    <div><span>🛒 Developed By:</span> DRDO with Bharat Forge & TATA</div>
+                    <div><span>📗 Technical Specifications:</span> Towed artillery gun</div>
+                    <div><span>🏋 Weight:</span> ~18,000 kg</div>
+                    <div><span>📏 Length:</span> ~12 m</div>
+                    <div><span>👨‍✈ Crew:</span> 6–8</div>
+                    <div><span>🔴 Ammunition:</span> HE, Smoke, Precision rounds</div>
+                    <div><span>⚡ Firing Rate:</span> 5–6 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 5 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/T72.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">T-72 Tank</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> Russia</div>
+                    <div><span>🟠 Caliber:</span> 125mm smoothbore gun</div>
+                    <div><span>⚡ Range:</span> ~3 km (direct fire)</div>
+                    <div><span>📅 Induction Year:</span> 1979 (India)</div>
+                    <div><span>🛒 Purchased From:</span> Soviet Union</div>
+                    <div><span>📗 Technical Specifications:</span> MBT with composite armor</div>
+                    <div><span>🏋 Weight:</span> 41 tons</div>
+                    <div><span>📏 Length:</span> 9.53 m with gun forward</div>
+                    <div><span>👨‍✈ Crew:</span> 3</div>
+                    <div><span>🔴 Ammunition:</span> HEAT, APFSDS, ATGM</div>
+                    <div><span>⚡ Firing Rate:</span> 6–8 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 6 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/MBTArjun.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">MBT Arjun</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Caliber:</span> 120mm rifled gun</div>
+                    <div><span>⚡ Range:</span> 2–4 km (direct fire)</div>
+                    <div><span>📅 Induction Year:</span> 2004</div>
+                    <div><span>🛒 Developed By:</span> DRDO</div>
+                    <div><span>📗 Technical Specifications:</span> Indigenous MBT</div>
+                    <div><span>🏋 Weight:</span> 58.5 tons</div>
+                    <div><span>📏 Length:</span> 10.63 m (gun forward)</div>
+                    <div><span>👨‍✈ Crew:</span> 4</div>
+                    <div><span>🔴 Ammunition:</span> HE, APFSDS, anti-helicopter rounds</div>
+                    <div><span>⚡ Firing Rate:</span> 6–8 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 7 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/IFG.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">IFG / LFG</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Caliber:</span> 105mm</div>
+                    <div><span>⚡ Range:</span> ~17.2 km (IFG), ~11.1 km (LFG)</div>
+                    <div><span>📅 Induction Year:</span> 1970s</div>
+                    <div><span>🛒 Developed By:</span> India Ordnance Factories</div>
+                    <div><span>📗 Technical Specifications:</span> Towed artillery guns</div>
+                    <div><span>🏋 Weight:</span> ~3,450 kg (IFG), ~2,300 kg (LFG)</div>
+                    <div><span>📏 Length:</span> Varies (~6–8 m)</div>
+                    <div><span>👨‍✈ Crew:</span> 6–8</div>
+                    <div><span>🔴 Ammunition:</span> HE, Smoke, Illumination</div>
+                    <div><span>⚡ Firing Rate:</span> 4–5 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 8 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/L-70ADGun.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">L/70 AD Gun</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> Sweden</div>
+                    <div><span>🟠 Caliber:</span> 40mm</div>
+                    <div><span>⚡ Range:</span> 3.5 km (effective air target)</div>
+                    <div><span>📅 Induction Year:</span> 1960s</div>
+                    <div><span>🛒 Purchased From:</span> Bofors</div>
+                    <div><span>📗 Technical Specifications:</span> Air Defence Gun</div>
+                    <div><span>🏋 Weight:</span> ~3,000 kg</div>
+                    <div><span>📏 Length:</span> ~4.5 m</div>
+                    <div><span>👨‍✈ Crew:</span> 4–5</div>
+                    <div><span>🔴 Ammunition:</span> HE-T, AP</div>
+                    <div><span>⚡ Firing Rate:</span> 240 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 9 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/SoltamGun.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">Soltam Gun</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> Israel</div>
+                    <div><span>🟠 Caliber:</span> 155mm</div>
+                    <div><span>⚡ Range:</span> ~30 km (with ERFB rounds)</div>
+                    <div><span>📅 Induction Year:</span> 1980s</div>
+                    <div><span>🛒 Purchased From:</span> Soltam Systems</div>
+                    <div><span>📗 Technical Specifications:</span> Towed howitzer</div>
+                    <div><span>🏋 Weight:</span> ~9,200 kg</div>
+                    <div><span>📏 Length:</span> Approx. 11 m</div>
+                    <div><span>👨‍✈ Crew:</span> 8–10</div>
+                    <div><span>🔴 Ammunition:</span> HE, Smoke, Illumination</div>
+                    <div><span>⚡ Firing Rate:</span> 4–5 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 10 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/BoforsF77.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">Bofors FH-77</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> Sweden</div>
+                    <div><span>🟠 Caliber:</span> 155mm</div>
+                    <div><span>⚡ Range:</span> ~24–30 km</div>
+                    <div><span>📅 Induction Year:</span> Late 1980s</div>
+                    <div><span>🛒 Purchased From:</span> Bofors AB, Sweden</div>
+                    <div><span>📗 Technical Specifications:</span> Towed field howitzer with APU</div>
+                    <div><span>🏋 Weight:</span> ~11,500 kg</div>
+                    <div><span>📏 Length:</span> Approx. 11.5 m</div>
+                    <div><span>👨‍✈ Crew:</span> 6–8</div>
+                    <div><span>🔴 Ammunition:</span> HE, Smoke, Illumination</div>
+                    <div><span>⚡ Firing Rate:</span> 3 rounds in 15 seconds (burst mode), 2 rpm sustained</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 11 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/PinakaMLRS.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">PINAKA MLRS</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Caliber:</span> 214mm (rockets)</div>
+                    <div><span>⚡ Range:</span> 37.5–75 km (Mk-I / Mk-II)</div>
+                    <div><span>📅 Induction Year:</span> Early 2000s</div>
+                    <div><span>🛒 Developed By:</span> DRDO & Indian industry</div>
+                    <div><span>📗 Technical Specifications:</span> Multi-Barrel Rocket Launcher (12 tubes)</div>
+                    <div><span>🏋 Weight:</span> Vehicle-mounted</div>
+                    <div><span>📏 Length:</span> Platform-mounted on Tatra truck</div>
+                    <div><span>👨‍✈ Crew:</span> 5</div>
+                    <div><span>🔴 Ammunition:</span> HE, incendiary, pre-fragmented warheads</div>
+                    <div><span>⚡ Firing Rate:</span> Full salvo (12 rockets) in 44 seconds</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 12 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/BrahmosMissile.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">BrahMos</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India-Russia joint venture</div>
+                    <div><span>🟠 Type:</span> Supersonic Cruise Missile</div>
+                    <div><span>⚡ Range:</span> ~450–800+ km (variant-dependent)</div>
+                    <div><span>📅 Induction Year:</span> 2006</div>
+                    <div><span>🛒 Developed By:</span> BrahMos Aerospace (DRDO + NPO Mashinostroyeniya)</div>
+                    <div><span>📗 Technical Specifications:</span> Land, air, sea, and submarine-launched</div>
+                    <div><span>🏋 Weight:</span> ~3,000 kg</div>
+                    <div><span>📏 Length:</span> ~8.4 m</div>
+                    <div><span>👨‍✈ Crew:</span> N/A (missile system)</div>
+                    <div><span>🔴 Ammunition:</span> Supersonic missile with conventional warhead</div>
+                    <div><span>⚡ Speed:</span> Mach 2.8–3.0</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 13 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/AK203.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">AK-203</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> Russia–India</div>
+                    <div><span>🟠 Caliber:</span> 7.62×39mm</div>
+                    <div><span>⚡ Range:</span> ~300–400 m (effective)</div>
+                    <div><span>📅 Induction Year:</span> Under production (2020s)</div>
+                    <div><span>🛒 Manufactured By:</span> Indo-Russian Rifles Pvt. Ltd (Amethi, India)</div>
+                    <div><span>📗 Technical Specifications:</span> Assault rifle</div>
+                    <div><span>🏋 Weight:</span> ~3.8 kg</div>
+                    <div><span>📏 Length:</span> ~880 mm</div>
+                    <div><span>👨‍✈ Crew:</span> Individual soldier</div>
+                    <div><span>🔴 Ammunition:</span> 7.62 mm rounds</div>
+                    <div><span>⚡ Firing Rate:</span> 600–700 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 14 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/INSASRifle.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">INSAS Rifle</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Caliber:</span> 5.56×45mm NATO</div>
+                    <div><span>⚡ Range:</span> Effective up to 400 m</div>
+                    <div><span>📅 Induction Year:</span> 1997</div>
+                    <div><span>🛒 Developed By:</span> DRDO / OFB</div>
+                    <div><span>📗 Technical Specifications:</span> Assault rifle (standard infantry weapon)</div>
+                    <div><span>🏋 Weight:</span> ~4.15 kg (loaded)</div>
+                    <div><span>📏 Length:</span> ~960 mm</div>
+                    <div><span>👨‍✈ Crew:</span> Individual soldier</div>
+                    <div><span>🔴 Ammunition:</span> 5.56 mm</div>
+                    <div><span>⚡ Firing Rate:</span> 600–650 rounds/min</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 15 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/NagMissile.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">Nag ATGM</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Caliber:</span> ~190mm (approx. diameter)</div>
+                    <div><span>⚡ Range:</span> 500 m – 4 km (land), up to 7 km (airborne Helina version)</div>
+                    <div><span>📅 Induction Year:</span> In final trials (2020s)</div>
+                    <div><span>🛒 Developed By:</span> DRDO</div>
+                    <div><span>📗 Technical Specifications:</span> Fire-and-forget anti-tank missile</div>
+                    <div><span>🏋 Weight:</span> ~44 kg</div>
+                    <div><span>📏 Length:</span> 1.9 m</div>
+                    <div><span>👨‍✈ Crew:</span> Launcher operated by 1–2 personnel</div>
+                    <div><span>🔴 Ammunition:</span> Tandem HEAT warhead</div>
+                    <div><span>⚡ Firing Rate:</span> Day/night, top attack</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 16 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/NetraUAV.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">Netra UAV</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Type:</span> Mini UAV (quadrotor)</div>
+                    <div><span>⚡ Range:</span> 2.5 km (LOS), up to 5 km</div>
+                    <div><span>📅 Induction Year:</span> 2016</div>
+                    <div><span>🛒 Developed By:</span> DRDO + IdeaForge</div>
+                    <div><span>📗 Technical Specifications:</span> Surveillance drone</div>
+                    <div><span>🏋 Weight:</span> ~1.5 kg</div>
+                    <div><span>📏 Size:</span> Compact quadrotor</div>
+                    <div><span>👨‍✈ Crew:</span> Operated by 1–2 personnel</div>
+                    <div><span>🔴 Payload:</span> HD camera, thermal imager</div>
+                    <div><span>⚡ Flight Time:</span> ~30–40 minutes</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 17 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/AgniMissile.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">Agni-V</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Type:</span> Intercontinental Ballistic Missile (ICBM)</div>
+                    <div><span>⚡ Range:</span> ~5,500–7,000 km</div>
+                    <div><span>📅 Induction Year:</span> In user trials (2020s)</div>
+                    <div><span>🛒 Developed By:</span> DRDO</div>
+                    <div><span>📗 Technical Specifications:</span> Surface-to-surface strategic missile</div>
+                    <div><span>🏋 Weight:</span> ~50,000 kg</div>
+                    <div><span>📏 Length:</span> ~17.5 m</div>
+                    <div><span>👨‍✈ Crew:</span> Strategic Forces Command</div>
+                    <div><span>🔴 Warhead:</span> Nuclear-capable</div>
+                    <div><span>⚡ Speed:</span> Hypersonic (Mach 24 at re-entry)</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 18 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/Dhanush.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">Dhanush</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Caliber:</span> 155mm/45 Cal</div>
+                    <div><span>⚡ Range:</span> ~38 km</div>
+                    <div><span>📅 Induction Year:</span> 2019</div>
+                    <div><span>🛒 Developed By:</span> OFB based on Bofors FH-77</div>
+                    <div><span>📗 Technical Specifications:</span> Towed howitzer</div>
+                    <div><span>🏋 Weight:</span> ~13,000 kg</div>
+                    <div><span>📏 Length:</span> ~11.8 m</div>
+                    <div><span>👨‍✈ Crew:</span> 6–8</div>
+                    <div><span>🔴 Ammunition:</span> HE, Smoke, precision rounds</div>
+                    <div><span>⚡ Firing Rate:</span> 3 rounds/15 sec burst, 2–3 rpm sustained</div>
+                </div>
+            </div>
+
+            <!-- Weapon Card 19 -->
+            <div class="weapon-card">
+                <div class="weapon-top">
+                    <img src="../Assets/AkashMissile.png" alt="M-46 Field Gun" class="weapon-image" />
+                    <div class="weapon-name">Akash</div>
+                </div>
+                <div class="weapon-specs">
+                    <div><span>⚙ Origin:</span> India</div>
+                    <div><span>🟠 Caliber:</span> 25 km range (missile-based, not bullet)</div>
+                    <div><span>⚡ Range:</span> 25–30 km</div>
+                    <div><span>📅 Induction Year:</span> 2007</div>
+                    <div><span>🛒 Developed By:</span> DRDO</div>
+                    <div><span>📗 Technical Specifications:</span> Surface-to-air missile system</div>
+                    <div><span>🏋 Weight:</span> ~700 kg per missile</div>
+                    <div><span>📏 Length:</span> ~5.8 m</div>
+                    <div><span>👨‍✈ Crew:</span> Operated by Army/Air Force teams</div>
+                    <div><span>🔴 Ammunition:</span> Missile with HE warhead</div>
+                    <div><span>⚡ Speed:</span> Mach 2.5</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="../Assets/DRDO.png" alt="DRDO Logo" class="footer-logo">
+                <p class="footer-org">
+                    Defence Research & Development Organisation<br>
+                    Ministry of Defence, Government of India
+                </p>
+            </div>
+
+            <div class="footer-center">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="../HTML/index.html">Home</a></li>
+                    <li><a href="../HTML/AboutUs.html">About</a></li>
+                    <li><a href="../HTML/Weapons.html">Weapons</a></li>
+                    <li><a href="../HTML/Employee.html">PXE Employees</a></li>
+                    <li><a href="../HTML/WeaponDetailment.html">Weapon Detailment</a></li>
+                    <li><a href="../HTML/ProjectMember.html">About Project</a></li>
+                    <li><a href="#" onclick="logout()">Logout</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <h4>Contact</h4>
+                <p>Email: <a href="#" class="email-link">support@drdo.in</a></p>
+                <p>Location: DRDO Chandipur, Odisha</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2025, DRDO, Ministry of Defence, Government of India</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

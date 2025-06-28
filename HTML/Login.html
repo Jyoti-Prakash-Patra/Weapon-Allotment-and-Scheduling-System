@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DRDO | Weapon Detailment Portal</title>
+  <link rel="stylesheet" href="../CSS/Login.css" />
+  <link rel="icon" type="image/webp" href="../Assets/DRDO.png">
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="login-left">
+      <div class="login-overlay-blur"></div>
+      <div class="login-text">
+        <h1>Join DRDO</h1>
+        <div class="blur-box">
+          <p class="tagline">Defending India Through Innovation</p>
+          <p>DRDO is committed to developing advanced defense technologies to ensure the nation's safety and strategic
+            edge. Join us in building a stronger, self-reliant India.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-right">
+      <img src="../Assets/DRDO.png" alt="DRDO Logo" class="drdo-logo" />
+      <h2>User Login – DRDO Intranet</h2>
+      <form id="loginForm">
+        <label for="empID" class="form-label">Enter your ID</label>
+        <input type="text" id="empID" placeholder="Employee ID" required />
+
+        <label for="password" class="form-label">Enter your Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Password" required />
+          <span class="toggle-password" onclick="togglePassword()">👁️</span>
+        </div>
+
+        <button type="submit">Login</button>
+        <p id="errorMsg" class="error-msg"></p>
+
+        <div class="credentials-box">
+          ID: DRDO2501<br>
+          Password: drdo@2025
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="../JS/login.js"></script>
+</body>
+
+</html>

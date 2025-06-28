@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: #f0f4f9;
+}
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.login-left {
+  flex: 1;
+  background-image: url('../Assets/Tank.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.login-overlay-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 28, 60, 0.6);
+  z-index: 1;
+}
+
+.login-text {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.login-text h1 {
+  font-size: 2.3rem;
+  color: #ffcc00;
+  margin-bottom: 20px;
+}
+
+.blur-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.blur-box p {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.blur-box .tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffdd44;
+}
+
+.login-right {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.drdo-logo {
+  width: 128px;
+  margin-bottom: 20px;
+}
+
+.login-right h2 {
+  margin-bottom: 20px;
+  color: #003366;
+  font-size: 1.8rem;
+}
+
+form {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin: 5px 0 5px 2px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #003366;
+}
+
+form input {
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #003366;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form button {
+  padding: 12px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #001a33;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  flex: 1;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-80%);
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.2rem;
+  color: #003366;
+}
+
+
+.error-msg {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ID and Password Info Box */
+.credentials-box {
+  margin-top: 25px;
+  padding: 10px 15px;
+  background-color: rgba(0, 51, 102, 0.05);
+  border: 1px solid #00336622;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #003366;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  .login-left {
+    padding: 20px;
+  }
+}
