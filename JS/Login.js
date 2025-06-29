@@ -34,6 +34,7 @@ const passwordInput = document.getElementById("password");
 const errorMsg = document.getElementById("errorMsg");
 const togglePasswordBtn = document.querySelector(".toggle-password");
 
+// Handle form submit
 loginForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -43,14 +44,14 @@ loginForm.addEventListener("submit", function (e) {
   if (empID === "DRDO2501" && password === "drdo@2025") {
     sessionStorage.setItem("isLoggedIn", "true");
     errorMsg.innerText = "";
-    // Correct relative path to index.html in /HTML folder
-    window.location.href = "index.html?login=success";
+    // Redirect to index.html inside HTML folder
+    window.location.href = "/HTML/index.html?login=success";
   } else {
     errorMsg.innerText = "Invalid credentials. Try again.";
   }
 });
 
-// Clear error message when user starts typing again
+// Clear error message while typing
 empIDInput.addEventListener("input", () => {
   errorMsg.innerText = "";
 });
