@@ -14,7 +14,7 @@
 
     <script>
         if (!sessionStorage.getItem("isLoggedIn")) {
-            window.location.href = "login.html";
+            window.location.href = "Login.html";
         }
 
         window.onload = function () {
@@ -28,7 +28,7 @@
             const confirmLogout = confirm("Are you sure you want to logout?");
             if (confirmLogout) {
                 sessionStorage.removeItem("isLoggedIn");
-                window.location.href = "login.html";
+                window.location.href = "Login.html";
             }
         }
     </script>
