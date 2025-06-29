@@ -154,19 +154,19 @@
 
 let allData = [];
 
-const BASE_URL = window.location.origin.includes("localhost")
-  ? "http://localhost:5000"
-  : "https://your-app-name.up.railway.app"; // 🔁 Replace with your deployed URL
-
 window.onload = async function () {
   try {
-    const response = await fetch(`${BASE_URL}/all`);
+    const response = await fetch("/all"); // ✅ relative path
+    if (!response.ok) {
+      throw new Error("Failed to fetch data from the server.");
+    }
+
     allData = await response.json();
     renderTable(allData);
     populateDropdowns(allData);
   } catch (error) {
-    alert("Failed to load data. Please check backend connection.");
-    console.error(error);
+    console.error("Error fetching data:", error);
+    alert("❌ Failed to load data. Please make sure the server is running.");
   }
 };
 
