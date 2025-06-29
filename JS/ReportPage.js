@@ -155,17 +155,7 @@
 let allData = [];
 
 window.onload = async function () {
-  if (!sessionStorage.getItem("isLoggedIn")) {
-    window.location.href = "login.html";
-    return;
-  }
-
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("login") === "success") {
-    alert("You are successfully logged in.");
-  }
-
-  const response = await fetch("http://localhost:5000/all?_=" + new Date().getTime()); // Added timestamp to avoid caching
+  const response = await fetch("http://localhost:5000/all?_=" + Date.now());
   allData = await response.json();
   renderTable(allData);
   populateDropdowns(allData);
