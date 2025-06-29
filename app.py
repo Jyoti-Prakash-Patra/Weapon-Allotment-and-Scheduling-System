@@ -248,7 +248,7 @@ init_db()
 # ----------------- SERVE FRONTEND ------------------
 @app.route('/')
 def home():
-    return send_from_directory('HTML', 'index.html')
+    return send_from_directory('HTML', 'Login.html')
 
 @app.route('/HTML/<path:filename>')
 def serve_html(filename):
