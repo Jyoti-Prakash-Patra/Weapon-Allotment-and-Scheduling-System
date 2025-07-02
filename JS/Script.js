@@ -486,7 +486,7 @@ async function deleteData() {
     return;
   }
 
-  const confirmDelete = confirm("Are you sure you want to delete the selected record?");
+  const confirmDelete = confirm("Are you sure you want to delete the selected record ?");
   if (!confirmDelete) return;
 
   try {
@@ -532,7 +532,7 @@ const weapons = [
   { name: "ATAGS-155x52", id: "WPN-ATGS-15552" },
   { name: "T-72 Tank", id: "WPN-T72-M1" },
   { name: "MBT Arjun", id: "WPN-ARJ-MK1" },
-  { name: "IFG / LFG", id: "WPN-IFG-105" },
+  { name: "IFG/LFG", id: "WPN-IFG-105" },
   { name: "L/70 AD Gun", id: "WPN-L70-40" },
   { name: "Bofors FH-77", id: "WPN-BFR-77" },
   { name: "PINAKA MLRS", id: "WPN-PNK-MKI" },
@@ -646,7 +646,7 @@ async function deleteFilteredData() {
     return;
   }
 
-  const confirmDelete = confirm("Are you sure you want to delete the filtered records?");
+  const confirmDelete = confirm("Are you sure you want to delete the filtered records ?");
   if (!confirmDelete) return;
 
   const filters = { employeeName: employee, weaponName: weapon, dateFrom, dateTo };

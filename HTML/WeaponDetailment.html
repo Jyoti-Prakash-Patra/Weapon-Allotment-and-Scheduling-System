@@ -3,11 +3,10 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Firing Detailment Form</title>
+  <title>Weapon Detailment Form</title>
   <link rel="stylesheet" href="../CSS/WeaponDetailment.css" />
   <link rel="stylesheet" href="../CSS/style.css" />
   <link rel="icon" type="image/webp" href="../Assets/DRDO.png">
-
 </head>
 
 <body>
@@ -33,7 +32,6 @@
     }
   </script>
 
-
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="navbar-left">
@@ -50,12 +48,11 @@
 
     <div class="navbar-center">
       <a href="../HTML/index.html" class="nav-link">Home</a>
-      <a href="../HTML/AboutUs.html" class="nav-link">About</a>
+      <a href="../HTML/AboutUs.html" class="nav-link">About Us</a>
       <a href="../HTML/Weapons.html" class="nav-link">Weapons</a>
       <a href="../HTML/Employee.html" class="nav-link">PXE Employees</a>
-      <a href="../HTML/WeaponDetailment.html" class="nav-link">Weapon Detailment</a>
-      <a href="../HTML/ProjectMember.html" class="nav-link">About Project</a>
-
+      <a href="../HTML/WeaponDetailment.html" class="nav-link active">Weapon Detailment</a>
+      <a href="../HTML/ProjectMember.html" class="nav-link">Intern</a>
     </div>
 
     <div class="navbar-right">
@@ -63,110 +60,109 @@
     </div>
   </nav>
 
-  <!-- Main Container -->
-  <div class="container">
-    <h2>🔒 Firing Detailment Form</h2>
-    <div class="top-grid">
-      <!-- Form Section -->
-      <div class="form-section">
-        <form id="firingForm">
-          <label for="employeeName">Select Employee</label>
-          <select id="employeeName" required onchange="autofillEmployeeID()">
+  <!-- Form Background -->
+  <div class="form-wrapper">
+    <div class="container">
+      <h2>🔒 Weapon Detailment Form</h2>
+      <div class="top-grid">
+        <div class="form-section">
+          <form id="firingForm">
+            <label for="employeeName">Select Employee</label>
+            <select id="employeeName" required onchange="autofillEmployeeID()">
+              <option value="">-- Select Employee --</option>
+            </select>
+
+            <label for="employeeID">Employee ID</label>
+            <input type="text" id="employeeID" readonly>
+
+            <label for="weaponName">Select Weapon</label>
+            <select id="weaponName" required onchange="autofillWeaponID()">
+              <option value="">-- Select Weapon --</option>
+            </select>
+
+            <label for="weaponID">Weapon ID</label>
+            <input type="text" id="weaponID" readonly>
+
+            <label for="date">Date of Firing</label>
+            <input type="date" id="date" required>
+
+            <label for="firingPoint">Firing Point</label>
+            <select id="firingPoint" required>
+              <option value="">-- Select Point --</option>
+              <option value="Firing Point 1">Firing Point 1</option>
+              <option value="Firing Point 2">Firing Point 2</option>
+              <option value="Firing Point 3">Firing Point 3</option>
+              <option value="Firing Point 4">Firing Point 4</option>
+            </select>
+
+            <label for="time">Time</label>
+            <select id="time" required>
+              <option value="">-- Select Time --</option>
+              <option value="Forenoon">Forenoon</option>
+              <option value="Afternoon">Afternoon</option>
+            </select>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn save">💾 Save</button>
+              <button type="reset" class="btn reset">❌ Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+          <h3>🔍 Filter Records</h3>
+
+          <label for="filterEmployee">Employee Name</label>
+          <select id="filterEmployee">
             <option value="">-- Select Employee --</option>
           </select>
 
-          <label for="employeeID">Employee ID</label>
-          <input type="text" id="employeeID" readonly>
-
-          <label for="weaponName">Select Weapon</label>
-          <select id="weaponName" required onchange="autofillWeaponID()">
+          <label for="filterWeapon">Weapon Name</label>
+          <select id="filterWeapon">
             <option value="">-- Select Weapon --</option>
           </select>
 
-          <label for="weaponID">Weapon ID</label>
-          <input type="text" id="weaponID" readonly>
+          <label for="filterFrom">From Date</label>
+          <input type="date" id="filterFrom">
 
-          <label for="date">Date of Firing</label>
-          <input type="date" id="date" required>
+          <label for="filterTo">To Date</label>
+          <input type="date" id="filterTo">
 
-          <label for="firingPoint">Firing Point</label>
-          <select id="firingPoint" required>
-            <option value="">-- Select Point --</option>
-            <option value="Firing Point 1">Firing Point 1</option>
-            <option value="Firing Point 2">Firing Point 2</option>
-            <option value="Firing Point 3">Firing Point 3</option>
-            <option value="Firing Point 4">Firing Point 4</option>
-          </select>
-
-          <label for="time">Time</label>
-          <select id="time" required>
-            <option value="">-- Select Time --</option>
-            <option value="Forenoon">Forenoon</option>
-            <option value="Afternoon">Afternoon</option>
-          </select>
-
-          <div class="form-buttons">
-            <button type="submit" class="btn save">💾 Save</button>
-            <button type="reset" class="btn reset">❌ Reset</button>
-          </div>
-        </form>
+          <button class="btn filter" onclick="filterData()">🔍 Search</button>
+          <button class="btn clear" onclick="clearFilter()">♻️ Clear</button>
+          <button class="btn delete" onclick="deleteFilteredData()">🗑️ Delete</button>
+        </div>
       </div>
 
-      <!-- Filter Section -->
-      <div class="filter-section">
-        <h3>🔍 Filter Records</h3>
-
-        <label for="filterEmployee">Employee Name</label>
-        <select id="filterEmployee">
-          <option value="">-- Select Employee --</option>
-        </select>
-
-        <label for="filterWeapon">Weapon Name</label>
-        <select id="filterWeapon">
-          <option value="">-- Select Weapon --</option>
-        </select>
-
-        <label for="filterFrom">From Date</label>
-        <input type="date" id="filterFrom">
-
-        <label for="filterTo">To Date</label>
-        <input type="date" id="filterTo">
-
-        <button class="btn filter" onclick="filterData()">🔍 Search</button>
-        <button class="btn clear" onclick="clearFilter()">♻️ Clear</button>
-        <button class="btn delete" onclick="deleteFilteredData()">🗑️ Delete</button>
+      <!-- Table Section -->
+      <div class="table-section">
+        <h3>🛡️ Saved Weapon Logs</h3>
+        <div class="scrollable-table">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th>Serial No</th>
+                <th>Employee Name</th>
+                <th>Employee ID</th>
+                <th>Weapon Name</th>
+                <th>Weapon ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Firing Point</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
 
-    </div>
-
-    <!-- Table Section -->
-    <div class="table-section">
-      <h3>Saved Entries</h3>
-      <div class="scrollable-table">
-        <table id="dataTable">
-          <thead>
-            <tr>
-              <th>Serial No</th>
-              <th>Employee Name</th>
-              <th>Employee ID</th>
-              <th>Weapon Name</th>
-              <th>Weapon ID</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Firing Point</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button onclick="updateData()" class="btn update">✏️ Update</button>
+        <button onclick="deleteData()" class="btn delete">🗑️ Delete</button>
+        <button onclick="window.location.href='ReportPage.html'" class="btn report">📄 Show Report</button>
       </div>
-
-    </div>
-
-    <!-- Action Buttons -->
-    <div class="action-buttons">
-      <button onclick="updateData()" class="btn update">✏️ Update</button>
-      <button onclick="deleteData()" class="btn delete">🗑️ Delete</button>
-      <button onclick="window.location.href='ReportPage.html'" class="btn report">📄 Show Report</button>
     </div>
   </div>
 
@@ -184,11 +180,11 @@
         <h4>Quick Links</h4>
         <ul class="footer-links">
           <li><a href="../HTML/index.html">Home</a></li>
-          <li><a href="../HTML/AboutUs.html">About</a></li>
+          <li><a href="../HTML/AboutUs.html">About Us</a></li>
           <li><a href="../HTML/Weapons.html">Weapons</a></li>
           <li><a href="../HTML/Employee.html">PXE Employees</a></li>
           <li><a href="../HTML/WeaponDetailment.html">Weapon Detailment</a></li>
-          <li><a href="../HTML/ProjectMember.html">About Project</a></li>
+          <li><a href="../HTML/ProjectMember.html">Intern</a></li>
           <li><a href="#" onclick="logout()">Logout</a></li>
         </ul>
       </div>

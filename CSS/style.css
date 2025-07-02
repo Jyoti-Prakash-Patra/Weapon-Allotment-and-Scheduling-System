@@ -103,6 +103,10 @@ body {
   margin-left: auto;
 }
 
+.nav-link.active {
+  color: #ffcc00;
+}
+
 .btn {
   padding: 8px 16px;
   background-color: #004d99;
@@ -394,7 +398,7 @@ body {
   color: #ffffff;
   padding: 40px 20px 10px;
   font-size: 14px;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 
 .footer-container {

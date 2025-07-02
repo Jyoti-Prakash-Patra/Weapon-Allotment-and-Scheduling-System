@@ -65,7 +65,7 @@
   font-weight: bold;
 }
 
-/* Center the last member card */
+/* last member card */
 .member-card.last {
   grid-column: 2 / 3;
 }

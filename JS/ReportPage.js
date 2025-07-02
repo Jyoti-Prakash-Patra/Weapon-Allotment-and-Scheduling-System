@@ -156,7 +156,7 @@ let allData = [];
 
 window.onload = async function () {
   try {
-    const response = await fetch("/all"); // ✅ relative path
+    const response = await fetch("/all");
     if (!response.ok) {
       throw new Error("Failed to fetch data from the server.");
     }
@@ -258,7 +258,7 @@ function exportToExcel() {
   const wb = XLSX.utils.book_new();
   const ws = XLSX.utils.table_to_sheet(document.getElementById("reportTable"));
   XLSX.utils.book_append_sheet(wb, ws, "Firing Report");
-  XLSX.writeFile(wb, "Firing_Report.xlsx");
+  XLSX.writeFile(wb, "Weapon_Detailment_Report.xlsx");
 }
 
 async function exportToPDF() {
@@ -278,7 +278,7 @@ async function exportToPDF() {
 
     doc.setFontSize(16);
     doc.setTextColor(40);
-    doc.text("FIRING DETAILMENT REPORT", 105, yPosition + logoHeight + 10, null, null, "center");
+    doc.text("WEAPON DETAILMENT REPORT", 105, yPosition + logoHeight + 10, null, null, "center");
 
     const table = document.getElementById("reportTable");
     const head = [Array.from(table.querySelectorAll("thead th")).map(th => th.textContent.trim())];
@@ -302,7 +302,7 @@ async function exportToPDF() {
       }
     });
 
-    doc.save("Firing_Details_Report.pdf");
+    doc.save("Weapon_Detailment_Report.pdf");
   };
 
   logoImg.onerror = function () {

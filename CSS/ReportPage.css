@@ -1,6 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0a1a2f;
+  color: #00ccff;
   margin: 0;
   padding: 20px;
 }
@@ -8,173 +15,208 @@ body {
 .container {
   max-width: 95%;
   margin: auto;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background-color: rgba(0, 15, 30, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 204, 255, 0.2);
+  position: relative;
+  z-index: 2;
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #004080;
+  margin-bottom: 30px;
+  color: #00ccff;
+  font-size: 28px;
 }
 
+/* Filter Section */
 .filter-section {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.filter-section label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-.filter-section select,
-.filter-section input[type="text"],
-.filter-section input[type="date"] {
-  width: 100%;
-  padding: 10px 14px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 15px;
-  background-color: #f9f9f9;
-  transition: border 0.3s ease-in-out;
-  box-sizing: border-box;
-}
-
-.filter-section select:focus,
-.filter-section input[type="text"]:focus,
-.filter-section input[type="date"]:focus {
-  border-color: #1e90ff;
-  background-color: #ffffff;
-  outline: none;
-}
-
-
-
-.filter-buttons {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-start;
-}
-
-.btn {
-  background-color: #004080;
-  color: white;
-  padding: 10px 20px;
-  margin-top: 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #0066cc;
-}
-
-.btn.clear {
-  background-color: #d9534f;
-}
-
-.btn.clear:hover {
-  background-color: #c9302c;
-}
-
-.table-section {
-  overflow-x: auto;
-}
-
-.scrollable-table table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.scrollable-table th,
-.scrollable-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}
-
-.scrollable-table th {
-  background-color: #004080;
-  color: white;
-  position: sticky;
-  top: 0;
-}
-
-.action-buttons {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.action-buttons .btn {
-  margin: 0 10px;
-}
-
-@media print {
-
-  .action-buttons,
-  .filter-section {
-    display: none;
-  }
-}
-
-.centered-filters {
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
 }
 
 .filter-wrapper {
+  position: relative;
   width: 320px;
+  padding: 20px;
+  background-color: rgba(0, 15, 30, 0.8);
+  border-radius: 12px;
+  border: 2px solid #006699;
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.3);
+  z-index: 1;
 }
 
-@media screen and (max-width: 480px) {
-  .filter-wrapper {
-    width: 100%;
-  }
+.filter-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid #00ccff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00ccff;
+  z-index: -1;
 }
 
+.filter-wrapper label {
+  display: block;
+  margin: 18px 0 5px;
+  font-weight: 600;
+  color: #00ccff;
+}
+
+.filter-wrapper select,
+.filter-wrapper input[type="date"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #00aaff;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: rgba(0, 25, 50, 0.85);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.filter-wrapper select:focus,
+.filter-wrapper input[type="date"]:focus {
+  border-color: #00ccff;
+  background-color: rgba(0, 50, 80, 0.95);
+  outline: none;
+  color: #ffffff;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #00ccff;
+  color: #00ccff;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(0, 204, 255, 0.3);
+}
+
+.btn:hover {
+  background-color: #00ccff;
+  color: #000;
+}
+
+.btn.clear {
+  border-color: #ff4d4d;
+  color: #ff4d4d;
+}
+
+.btn.clear:hover {
+  background-color: #ff4d4d;
+  color: #fff;
+}
+
+.btn.excel {
+  border-color: #00ff99;
+  color: #00ff99;
+}
+
+.btn.excel:hover {
+  background-color: #00ff99;
+  color: #000;
+}
+
+.btn.pdf {
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+.btn.pdf:hover {
+  background-color: #ffd700;
+  color: #000;
+}
+
+.btn.back {
+  border-color: #3399ff;
+  color: #3399ff;
+}
+
+.btn.back:hover {
+  background-color: #3399ff;
+  color: #000;
+}
+
+/* Table Section */
+.table-section {
+  margin-top: 40px;
+}
 
 .scrollable-table {
   max-height: 280px;
   overflow-y: auto;
-  border: 1px solid #ccc;
+  overflow-x: auto;
+  border: 1px solid #00ccff;
+  background-color: #001a2e;
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+  border-radius: 6px;
 }
 
 .scrollable-table table {
-  width: 100%;
   border-collapse: collapse;
+  width: 100%;
   table-layout: fixed;
-  min-width: 100%;
+  min-width: 800px;
 }
 
 .scrollable-table thead th {
   position: sticky;
   top: 0;
-  background-color: #004080;
-  color: white;
+  background-color: #00334d !important;
+  color: #00ccff;
+  border-bottom: 2px solid #00ccff;
   z-index: 2;
 }
 
 .scrollable-table th,
 .scrollable-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: 1px solid #00aaff;
+  padding: 10px 14px;
   text-align: center;
   word-wrap: break-word;
+  font-size: 15px;
+  color: #ffffff;
 }
 
-/* Responsive adjustments for smaller screens */
+.scrollable-table tr:nth-child(even) {
+  background-color: #001f33;
+}
+
+.scrollable-table tr:hover {
+  background-color: #003f66;
+}
+
+/* Action Buttons */
+.action-buttons {
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Responsive */
 @media screen and (max-width: 768px) {
-  .scrollable-table {
-    max-height: 280px;
+  .filter-wrapper {
+    width: 100%;
   }
 
   .scrollable-table table {
@@ -184,5 +226,24 @@ h2 {
   .scrollable-table th,
   .scrollable-table td {
     padding: 8px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .filter-buttons,
+  .action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Hide elements while printing */
+@media print {
+  .action-buttons,
+  .filter-section {
+    display: none;
   }
 }
